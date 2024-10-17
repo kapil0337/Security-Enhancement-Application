@@ -1,0 +1,26 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flask-trivy-role
+  namespace: alti-chatbot
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["create", "get", "list", "watch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: flask-trivy-rolebinding
+  namespace: alti-chatbot
+subjects:
+  - kind: ServiceAccount
+    name: default  # Use your service account name if it's different
+    namespace: alti-chatbot
+roleRef:
+  kind: Role
+  name: flask-trivy-role
+  apiGroup: rbac.authorization.k8s.io

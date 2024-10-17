@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-trivy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-trivy
+  template:
+    metadata:
+      labels:
+        app: flask-trivy
+    spec:
+      containers:
+      - name: flask-container
+        image: python:3.9  # Python base image
+        command: ["python3", "-u", "app.py"]
+        volumeMounts:
+        - name: app-volume
+          mountPath: /app
+        ports:
+        - containerPort: 5000
+      volumes:
+      - name: app-volume
+        hostPath:
+          path: D:\Users\kvprabhakar\Desktop\t-scan  # Make sure your files are mounted

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivy Image Scanner</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+        h1 {
+            color: #005b96; /* Altimetrik dark blue */
+            margin-bottom: 20px;
+        }
+        .container {
+            background: #ffffff; /* White background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02); /* Slight scale effect on hover */
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: block;
+            text-align: left;
+        }
+        input[type="text"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 24px);
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #005b96; /* Change border color on focus */
+            outline: none;
+        }
+        button {
+            background-color: #5cb85c; /* Altimetrik green */
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c; /* Darker green for hover */
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trivy Image Scanner</h1>
+    <div class="container">
+        <form action="/scan" method="POST">
+            <label for="image_name">Docker Image Name:</label>
+            <input type="text" id="image_name" name="image_name" required placeholder="Enter image name (e.g., my-flask-app:latest)">
+            <button type="submit">Scan</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>Scan your Docker images quickly and securely.</p>
+    </div>
+</body>
+</html>

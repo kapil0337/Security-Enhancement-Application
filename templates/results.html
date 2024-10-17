@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+        h1 {
+            color: #005b96; /* Altimetrik dark blue */
+            margin-bottom: 20px;
+        }
+        .container {
+            background: #ffffff; /* White background for the results */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            text-align: left;
+            overflow: hidden;
+            position: relative;
+        }
+        pre {
+            background: #f7f7f7; /* Light gray background for results */
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            overflow: auto;
+            white-space: pre-wrap; /* Allows long lines to wrap */
+            transition: background-color 0.3s;
+        }
+        pre:hover {
+            background-color: #e9ecef; /* Darken background on hover */
+        }
+        a {
+            margin-top: 20px;
+            color: #005b96; /* Altimetrik dark blue */
+            text-decoration: none;
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scan Results</h1>
+    <div class="container">
+        <pre>{{ results }}</pre>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
